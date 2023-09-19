@@ -92,7 +92,7 @@
 	
 	<table class="table w-100">
 		<tbody>
-			@foreach($task as $key=>$row)
+			@foreach($tasks as $key=>$row)
 			<tr>
 				<td>
 					<div class="col-lg-6">
@@ -101,24 +101,39 @@
 							<div class="accordion-item">
 								<h2 class="accordion-header" id="headingOne">
 								<button class="accordion-button collapsed" type="button"
-								data-bs-toggle="collapse" data-bs-target="#collapseOne"
-								aria-expanded="true" aria-controls="collapseOne">
+								data-bs-toggle="collapse" data-bs-target="#collapseOne-{{$row->id}}"
+								aria-expanded="true" aria-controls="collapseOne-{{$row->id}}">
 								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="{{$row->task_color}}" class="bi bi-circle-fill" viewBox="0 0 16 16">
 									<circle cx="8" cy="8" r="8"/>
 								</svg>
 								{{$row->title}}
 								</button>
 								</h2>
-								<div id="collapseOne" class="accordion-collapse collapse"
-									aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+								<div id="collapseOne-{{$row->id}}" class="accordion-collapse collapse"
+									aria-labelledby="headingOne-{{$row->id}}" data-bs-parent="#accordionExample">
 									<div class="accordion-body">
 										<p></p><br><hr>
-										<div class="flex-container">
+										<div class="flex-row">
 											<p>{{$row->description}}</p>
 											<span>{{$row->timestamp_start}}</span> to
 											<span>{{$row->timestamp_end}}</span>
 											<ul>
-												<a href=""><li>Edit</li></a>
+												<a href=""
+													class="dropdown-item update_task_form"
+													href="#"
+													data-bs-toggle="modal"
+													data-bs-target="#updateTaskModal"
+													data-id="{{$row->id}}"
+													data-title="{{$row->title}}"
+													data-description="{{$row->description}}"
+													data-staff_id="{{$row->staff_id}}"
+													data-status="{{$row->status}}"
+													data-timestamp_start="{{$row->timestamp_start}}"
+													data-timestamp_end="{{$row->timestamp_end}}"
+													data-task_color="{{$row->task_color}}"
+													>
+													<li>Edit</li>
+												</a>
 												<a
 													class="dropdown-item delete_task"
 													href=""
@@ -138,5 +153,6 @@
 			</tbody>
 		</table>
 	</div>
-	
+@include('admin.project_task_add', ['project_code'=>$project_code])
+@include('admin.project_task_update', ['project_code'=>$project_code])
 	<!-- task part end -->

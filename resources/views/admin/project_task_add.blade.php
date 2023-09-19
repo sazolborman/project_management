@@ -1,8 +1,12 @@
+@php
+$staff = DB::table('staffs')->get();
+@endphp
 <!-- Modal -->
 <div class="modal fade" id="addTaskModal" tabindex="-1" aria-labelledby="addTaskModalLabel" aria-hidden="true">
   <form  action="" method="post" id="add_task_form">
     @csrf
-    <div class="modal-dialog">
+    <input type="hidden" id="project_code" name="project_code" value="{{$project_code}}">
+    <div class="modal-dialog modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="addTaskModalLabel"> Add Project Task</h1>
@@ -30,42 +34,44 @@
                           />
                         </div>
                         <div class="fpb-7">
-                          <label for="eInputSearch" class="eForm-label"
+                          <label for="eInputTextarea" class="eForm-label"
                           >Description</label
                           >
                           <textarea
-                          type="text"
-                          class="form-control eForm-control wysihtml5"
+                          class="form-control eForm-control"
                           id="task_description"
                           name="description"
-                          placeholder=""
-                          aria-label=""
+                          placeholder="Type description"
+                          ></textarea>
+                        </div>
+                        <div class="fpb-7">
+                          <label for="eDataList" class="eForm-label"
+                          >Assign Staff</label
                           >
-                          </textarea>
+                          <select
+                            class="form-select eForm-select eChoice-multiple-without-remove"
+                            data-placeholder="Type to search..."
+                            id="staff_id" name="staff_id"
+                            >
+                            @foreach($staff as $row)
+                            <option value="{{$row->id}}">{{$row->name}}</option>
+                            @endforeach
+                          </select>
                         </div>
-                        <div class=" fpb-7">
-                          <label for="eInputPassword" class="eForm-label"
-                          >Assign Staff</label>
-                          <div class="col-sm-5">
-                            <select option id="staff_id" name="staff_id" class="form-control">
-                              
-                              <option value=""></option>
-                              
-                            </select>
-                          </div>
+                        <div class="fpb-7">
+                          <label for="eDataList" class="eForm-label"
+                          >Status</label
+                          >
+                          <select
+                            class="form-select eForm-select eChoice-multiple-without-remove"
+                            data-placeholder="Type to search..."
+                            id="status" name="status"
+                            >
+                            <option value="complete">Complete</option>
+                            <option value="incomplete">Incomplete</option>
+                          </select>
                         </div>
-                        <div class=" fpb-7">
-                          <label for="eInputPassword" class="eForm-label"
-                          >Status</label>
-                          <div class="col-sm-5">
-                            <select option id="status" name="status" class="form-control">
-                              
-                              <option value="complete">Complete</option>
-                              <option value="incomplete">Incomplete</option>
-                              
-                            </select>
-                          </div>
-                        </div>
+                        
                         <div class="fpb-7">
                           <label for="eInputURL" class="eForm-label"
                           >Start Date</label
@@ -92,21 +98,22 @@
                           aria-label=""
                           />
                         </div>
-                        <div class=" fpb-7">
-                          <label for="eInputPassword" class="eForm-label"
-                          >Task Label Color</label>
-                          <div class="col-sm-5">
-                            <select option id="task_color" name="task_color" class="form-control">
-                              
-                              <option value="#ff0019">Red</option>
-                              <option value="#0B6623">Green</option>
-                              <option value="#FFFF00">Yellow</option>
-                              <option value="#000080">Blue</option>
-                              <option value="#FF8000">Orange</option>
-                              <option value="#2C3333">Dark</option>
-                              
-                            </select>
-                          </div>
+                        <div class="fpb-7">
+                          <label for="eDataList" class="eForm-label"
+                          >Task Label Color</label
+                          >
+                          <select
+                            class="form-select eForm-select eChoice-multiple-without-remove"
+                            data-placeholder="Type to search..."
+                            id="task_color" name="task_color"
+                            >
+                            <option value="#ff0019">Red</option>
+                            <option value="#0B6623">Green</option>
+                            <option value="#FFFF00">Yellow</option>
+                            <option value="#000080">Blue</option>
+                            <option value="#FF8000">Orange</option>
+                            <option value="#2C3333">Dark</option>
+                          </select>
                         </div>
                       </form>
                     </div>

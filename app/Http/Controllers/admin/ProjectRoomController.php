@@ -8,17 +8,17 @@ use DB;
 
 class ProjectRoomController extends Controller
 {
+
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {   
         
-        $project=DB::table('projects')
-            ->leftjoin('clients','projects.client_id','clients.id')
-            ->select('projects.*', 'clients.name as client_name')
-            ->get();
-        return view('admin.project_room', compact('project')); 
+        
+        
+        
     }
 
     /**
@@ -40,9 +40,9 @@ class ProjectRoomController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
-    {
-        //
+    public function show(string $project_code)
+    {   $project_code = $project_code;
+       return view('admin.project_room', compact('project_code'));
     }
 
     /**

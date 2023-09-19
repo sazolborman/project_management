@@ -1,0 +1,1 @@
+ticket_code: {{$row->ticket_code}}

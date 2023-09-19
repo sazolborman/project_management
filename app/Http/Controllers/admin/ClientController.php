@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\clients;
 use DB;
-class AdminController extends Controller
+class ClientController extends Controller
 {
     
 
@@ -19,7 +19,7 @@ class AdminController extends Controller
         return view('admin.client', compact('client'));
     }
 
-    // __add_student_in_database
+    // __add_client_in_database
     public function addclient(Request $request)
     {   
         
@@ -48,17 +48,15 @@ class AdminController extends Controller
         
     }
 
-    // __Update_student_in_database
+    // __Update_clients_in_database
     public function updateclient(Request $request)
     {
 
-             
-            dd($request->all());
 
             clients::where('id',$request->update_id)->update([
             'name'                        => $request->update_name,
             'email'                       =>$request->update_email,
-            'password'                    => $request->update_password,
+            'password'                    =>Hash::make($request->update_password),
             'address'                     => $request->update_address,
             'phone'                       =>$request->update_phone,
             'website'                     =>$request->update_website,

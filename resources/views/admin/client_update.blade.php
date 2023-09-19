@@ -18,7 +18,6 @@
                     <div class="col-md-6 pb-3">
                       <div class="eForm-layouts">
                         <form>
-                          @csrf
                           <div class="fpb-7">
                             <label for="eInputText" class="eForm-label"
                               >Name</label
@@ -92,11 +91,17 @@
                               type="text"
                               class="form-control eForm-control"
                               id="update_website"
-                              name="update_update_website"
+                              name="update_website"
                               placeholder="https//:www.xyz.com"
                               aria-label="https//:www.xyz.com"
                             />
                           </div>
+                        </form>
+                      </div>
+                    </div>
+                    <div class="col-md-6 pb-3">
+                      <div class="eForm-layouts">
+                        <form>
                           <div class="fpb-7">
                             <label for="eInputNumber" class="eForm-label"
                               >Skype Id</label
@@ -122,12 +127,6 @@
                               placeholder="url"
                             />
                           </div>
-                        </form>
-                      </div>
-                    </div>
-                    <div class="col-md-6 pb-3">
-                      <div class="eForm-layouts">
-                        <form>
                           <div class="fpb-7">
                             <label for="eInputDate" class="eForm-label"
                               >Linkedin</label
@@ -153,28 +152,14 @@
                             />
                           </div>
                           <div class="fpb-7">
-                            <label for="eInputWeek" class="eForm-label"
+                            <label for="eInputTextarea" class="eForm-label"
                               >Short Note</label
                             >
-                            <input
-                              type="text"
+                            <textarea
                               class="form-control eForm-control"
                               id="update_short_note"
                               name="update_short_note"
-                              value="short note"
-                            />
-                          </div>
-                          <div class="fpb-7">
-                            <label for="eInputTime" class="eForm-label"
-                              >Image</label
-                            >
-                            <input
-                              type="file"
-                              class="form-control eForm-control"
-                              id="update_image"
-                              name="update_image"
-                              value="image"
-                            />
+                            ></textarea>
                           </div>
                         </form>
                       </div>

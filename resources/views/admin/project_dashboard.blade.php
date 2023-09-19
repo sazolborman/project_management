@@ -1,4 +1,4 @@
-
+@include('admin.project_room')
 <div class="tab-content eNav-Tabs-content" id="myTabContent">
 		<div class="tab-pane fade show active" id="dHome" role="tabpanel"
 			aria-labelledby="dHome-tab">

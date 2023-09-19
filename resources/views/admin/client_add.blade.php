@@ -3,7 +3,7 @@
 <div class="modal fade" id="addClientModal" tabindex="-1" aria-labelledby="addClientModalLabel" aria-hidden="true">
   <form  action="" method="post" id="add_client_form">
     @csrf
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="addClientModalLabel">Add New Client</h1>
@@ -96,6 +96,12 @@
                               aria-label="https//:www.xyz.com"
                             />
                           </div>
+                        </form>
+                      </div>
+                    </div>
+                    <div class="col-md-6 pb-3">
+                      <div class="eForm-layouts">
+                        <form id="add_client_form_1">
                           <div class="fpb-7">
                             <label for="eInputNumber" class="eForm-label"
                               >Skype Id</label
@@ -121,12 +127,6 @@
                               placeholder="url"
                             />
                           </div>
-                        </form>
-                      </div>
-                    </div>
-                    <div class="col-md-6 pb-3">
-                      <div class="eForm-layouts">
-                        <form>
                           <div class="fpb-7">
                             <label for="eInputDate" class="eForm-label"
                               >Linkedin</label
@@ -152,16 +152,15 @@
                             />
                           </div>
                           <div class="fpb-7">
-                            <label for="eInputWeek" class="eForm-label"
+                            <label for="eInputTextarea" class="eForm-label"
                               >Short Note</label
                             >
-                            <input
-                              type="text"
+                            <textarea
                               class="form-control eForm-control"
                               id="short_note"
                               name="short_note"
-                              value="short note"
-                            />
+                              placeholder="short note"
+                            ></textarea>
                           </div>
                         </form>
                       </div>

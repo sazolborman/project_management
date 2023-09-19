@@ -2,7 +2,7 @@
 <div class="modal fade" id="addStaffModal" tabindex="-1" aria-labelledby="addStaffModalLabel" aria-hidden="true">
   <form  action="" method="post" id="add_staff_form">
     @csrf
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="addStaffModalLabel">Add New Staff</h1>
@@ -31,18 +31,19 @@
                           />
                         </div>
                         <div class="fpb-7">
-                          <label for="eInputText" class="eForm-label"
-                          >Account Role</label
-                          >
-                          <div class="">
-                            <select option id="account_role_id" name="account_role_id" class="form-control">
-                              
-                              <option value=""></option>
-                              <option value=""></option>
-                              
+                            <label for="eDataList" class="eForm-label"
+                              >Account Role</label
+                            >
+                            <select
+                              class="form-select eForm-select eChoice-multiple-without-remove"
+                              data-placeholder="Type to search..."
+                              id="account_role_id"
+                              name="account_role_id"
+                            >
+                              <option value="0"></option>
+                              <option value="0"></option>
                             </select>
                           </div>
-                        </div>
                         <div class="fpb-7">
                           <label for="eInputSearch" class="eForm-label"
                           >Email</label
@@ -82,6 +83,12 @@
                           aria-label="00 (88) 12345 6789"
                           />
                         </div>
+                      </form>
+                    </div>
+                  </div>
+                  <div class="col-md-6 pb-3">
+                    <div class="eForm-layouts">
+                      <form id="add_staff_form_1">
                         <div class="fpb-7">
                           <label for="eInputNumber" class="eForm-label"
                           >Skype Id</label
@@ -107,12 +114,6 @@
                           placeholder="url"
                           />
                         </div>
-                      </form>
-                    </div>
-                  </div>
-                  <div class="col-md-6 pb-3">
-                    <div class="eForm-layouts">
-                      <form>
                         <div class="fpb-7">
                           <label for="eInputDate" class="eForm-label"
                           >Linkedin Profile Link</label

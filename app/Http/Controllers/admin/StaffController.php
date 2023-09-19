@@ -43,6 +43,28 @@ class StaffController extends Controller
         
     }
 
+    // __Update_staff_in_database
+    public function update(Request $request)
+    {
+
+
+            staffs::where('id',$request->update_id)->update([
+            'name'                        => $request->update_name,
+            'email'                       =>$request->update_email,
+            'password'                    =>Hash::make($request->update_password),
+            'account_role_id'             => $request->update_account_role_id,
+            'phone'                       =>$request->update_phone,
+            'skype_id'                    =>$request->update_skype_id,
+            'facebook_profile_link'       =>$request->update_facebook_profile_link,
+            'linkedin_profile_link'       =>$request->update_linkedin_profile_link,
+            'twitter_profile_link'        =>$request->update_twitter_profile_link,
+            ]);
+            return response()->json([
+            'status'=>'success',
+        ]);
+    }
+
+
     public function delete(Request $request)
     {
         staffs::find($request->staff_id)->delete();
